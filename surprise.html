@@ -1,58 +1,97 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>闺蜜专属欧皇抽奖</title>
-    <style>
-        body { font-family: 'Arial', sans-serif; text-align: center; background: #FFEEF2; }
-        #wheel { 
-            margin: 20px auto; 
-            width: 300px; 
-            height: 300px; 
-            background: url('https://img.zhihu.com/undefined?source=32738c0c') no-repeat center/cover;
-            border-radius: 50%;
-        }
-        #spin-btn { 
-            padding: 10px 20px; 
-            background: #FF6B9E; 
-            color: white; 
-            border: none; 
-            border-radius: 20px; 
-            font-size: 18px; 
-            cursor: pointer; 
-            transition: 0.3s;
-        }
-        #spin-btn:hover { transform: scale(1.05); }
-        #result { 
-            margin: 20px auto; 
-            padding: 10px;
-            width: 80%; 
-            font-size: 24px; 
-            color: #FF6B9E; 
-            font-weight: bold;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(255,107,158,0.2);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>闺蜜专属欧皇抽奖</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+
+    body {
+      font-family: 'ZCOOL KuaiLe', cursive;
+      background: #FFF0F5;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #FF6B9E;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    #wheel {
+      margin: 0 auto;
+      width: 300px;
+      height: 300px;
+      background: url('微信图片_20250504214804.jpg') no-repeat center/cover;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+    }
+
+    #spin-btn {
+      padding: 15px 30px;
+      margin-top: 30px;
+      background: linear-gradient(135deg, #FF8BA7, #FF6B9E);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 107, 158, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    #spin-btn:hover {
+      transform: scale(1.05);
+    }
+
+    #result {
+      margin: 30px auto 0;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      font-size: 28px;
+      color: #D63384;
+      font-weight: bold;
+      background: #FFF;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(255,107,158,0.3);
+      line-height: 1.6;
+      animation: pop 0.5s ease-out;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-    <h1>🌠 我家小矮子的幸运大转盘 🌠</h1>
-    <p>（据说抽中的人会被香香carry一整年）</p>
-    <div id="wheel"></div>
-    <button id="spin-btn">点击抽奖（必中欧皇）</button>
-    <div id="result"></div>
+  <h1>💖 我家小矮子的幸运大转盘 💖</h1>
+  <p>（据说抽中的人会被香香carry一整年~）</p>
 
-    <script>
-        document.getElementById('spin-btn').onclick = function() {
-            // 假装加载动画
-            this.disabled = true;
-            document.getElementById('result').innerHTML = "⏳ 正在召唤香香公主...";
-            
-            // 3秒后显示中奖（100%红包）
-            setTimeout(function() {
-                document.getElementById('result').innerHTML = "🎉 恭喜！获得【香香红包】x1！<br><small>（其实是我特意准备的啦~）</small>";
-            }, 2000);
-        };
-    </script>
+  <div id="wheel"></div>
+  <button id="spin-btn">✨ 点击抽奖 ✨</button>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('spin-btn').onclick = function () {
+      const btn = this;
+      btn.disabled = true;
+      document.getElementById('result').innerHTML = "⏳ 正在召唤香香公主...";
+
+      setTimeout(function () {
+        document.getElementById('result').innerHTML =
+          "🎉 恭喜！获得 <span style='color:#FF4081;'>【香香红包】</span> x1 💌<br><small style='font-size:16px;'></small>";
+        btn.disabled = false;
+      }, 2000);
+    };
+  </script>
 </body>
 </html>
